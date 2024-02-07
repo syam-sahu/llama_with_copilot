@@ -1,5 +1,6 @@
 {
     "name": "Codespace for trying out llama_indexing with copilot",
+    "image": "mcr.microsoft.com/vscode/devcontainers/python:3.10",
     "customizations": {
         "vscode": {
             "extensions": [
