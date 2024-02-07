@@ -1,0 +1,10 @@
+{
+    "name": "Codespace for trying out llama_indexing with copilot",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "GitHub.Copilot"
+            ]
+        }
+    }
+}
