@@ -1,0 +1,354 @@
+
+DEBUG:llama_index.readers.file.base:> [SimpleDirectoryReader] Total files added: 1
+> [SimpleDirectoryReader] Total files added: 1
+
+/// Llama-Index diving the whole data into chunks 
+
+    DEBUG:llama_index.node_parser.node_utils:> Adding chunk: What I Worked On
+
+    February 2021
+
+    Before college...
+    > Adding chunk: What I Worked On
+
+    February 2021
+
+    Before college...
+
+    DEBUG:llama_index.node_parser.node_utils:> Adding chunk: I couldn't have put this into words when I was ...
+    > Adding chunk: I couldn't have put this into words when I was ...
+
+    DEBUG:llama_index.node_parser.node_utils:> Adding chunk: So I looked around to see what I could salvage ...
+    > Adding chunk: So I looked around to see what I could salvage ...
+
+    DEBUG:llama_index.node_parser.node_utils:> Adding chunk: I remember when my friend Robert Morris got kic...
+    > Adding chunk: I remember when my friend Robert Morris got kic...
+
+    DEBUG:llama_index.node_parser.node_utils:> Adding chunk: Except hardly anyone else painted her besides m...
+    > Adding chunk: Except hardly anyone else painted her besides m...
+
+    DEBUG:llama_index.node_parser.node_utils:> Adding chunk: Now they wanted a Lisp hacker to write things i...
+    > Adding chunk: Now they wanted a Lisp hacker to write things i...
+
+    DEBUG:llama_index.node_parser.node_utils:> Adding chunk: For example, when you see a painting that looks...
+    > Adding chunk: For example, when you see a painting that looks...
+
+    DEBUG:llama_index.node_parser.node_utils:> Adding chunk: I'd seen what graphical user interfaces had don...
+    > Adding chunk: I'd seen what graphical user interfaces had don...
+
+    DEBUG:llama_index.node_parser.node_utils:> Adding chunk: (Had I diligently set aside the proper proporti...
+    > Adding chunk: (Had I diligently set aside the proper proporti...
+
+    DEBUG:llama_index.node_parser.node_utils:> Adding chunk: We had no idea what businesses paid for things....
+    > Adding chunk: We had no idea what businesses paid for things....
+
+    DEBUG:llama_index.node_parser.node_utils:> Adding chunk: The next year, from the summer of 1998 to the s...
+    > Adding chunk: The next year, from the summer of 1998 to the s...
+
+    DEBUG:llama_index.node_parser.node_utils:> Adding chunk: Meanwhile I looked for an apartment to buy. Now...
+    > Adding chunk: Meanwhile I looked for an apartment to buy. Now...
+
+    DEBUG:llama_index.node_parser.node_utils:> Adding chunk: I was invited to give a talk at a Lisp conferen...
+    > Adding chunk: I was invited to give a talk at a Lisp conferen...
+
+    DEBUG:llama_index.node_parser.node_utils:> Adding chunk: And I bought another building in Cambridge, a f...
+    > Adding chunk: And I bought another building in Cambridge, a f...
+
+    DEBUG:llama_index.node_parser.node_utils:> Adding chunk: There were VC firms, which were organized compa...
+    > Adding chunk: There were VC firms, which were organized compa...
+
+    DEBUG:llama_index.node_parser.node_utils:> Adding chunk: The deal for startups was based on a combinatio...
+    > Adding chunk: The deal for startups was based on a combinatio...
+
+    DEBUG:llama_index.node_parser.node_utils:> Adding chunk: It was very engaging work, because their proble...
+    > Adding chunk: It was very engaging work, because their proble...
+
+    DEBUG:llama_index.node_parser.node_utils:> Adding chunk: I kept working on YC till March, to help get th...
+    > Adding chunk: I kept working on YC till March, to help get th...
+
+    DEBUG:llama_index.node_parser.node_utils:> Adding chunk: So I decided to take a shot at it. It took 4 ye...
+    > Adding chunk: So I decided to take a shot at it. It took 4 ye...
+
+    DEBUG:llama_index.node_parser.node_utils:> Adding chunk: [3] I lived at Piazza San Felice 4, so my walk ...
+    > Adding chunk: [3] I lived at Piazza San Felice 4, so my walk ...
+
+    DEBUG:llama_index.node_parser.node_utils:> Adding chunk: Obviously software and venture capital will be,...
+    > Adding chunk: Obviously software and venture capital will be,...
+
+
+/// Connecting to OpenAI (https://api.openai.com/v1/embeddings); sending POST request with body as chunks; and getting embeddings as response 
+
+    DEBUG:httpx:load_ssl_context verify=True cert=None trust_env=True http2=False
+    load_ssl_context verify=True cert=None trust_env=True http2=False
+
+    DEBUG:httpx:load_verify_locations cafile='/home/vscode/.local/share/virtualenvs/llamacopilot-b6ATpH5h/lib/python3.10/site-packages/certifi/cacert.pem'
+    load_verify_locations cafile='/home/vscode/.local/share/virtualenvs/llamacopilot-b6ATpH5h/lib/python3.10/site-packages/certifi/cacert.pem'
+
+    DEBUG:openai._base_client:Request options: 
+    {
+        'method': 'post', 
+        'url': '/embeddings', 
+        'files': None, 
+        'post_parser': <function Embeddings.create.<locals>.parser at 0x7f7e63746b00>, 
+        'json_data': {
+            'input': ['file_path: data/essay.txt  <whole essay>'], 
+            'model': <OpenAIEmbeddingModeModel.TEXT_EMBED_ADA_002: 'text-embedding-ada-002'>, 
+            'encoding_format': 'base64'
+        }
+    }
+
+    DEBUG:httpcore.connection:connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=60.0 socket_options=None
+    connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=60.0 socket_options=None
+
+    DEBUG:httpcore.connection:connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f7e62c291b0>
+    connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f7e62c291b0>
+
+    DEBUG:httpcore.connection:start_tls.started ssl_context=<ssl.SSLContext object at 0x7f7e62982040> server_hostname='api.openai.com' timeout=60.0
+    start_tls.started ssl_context=<ssl.SSLContext object at 0x7f7e62982040> server_hostname='api.openai.com' timeout=60.0
+
+    DEBUG:httpcore.connection:start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f7e62c29180>
+    start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f7e62c29180>
+
+    DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+    send_request_headers.started request=<Request [b'POST']>
+
+    DEBUG:httpcore.http11:send_request_headers.complete
+    send_request_headers.complete
+
+    DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+    send_request_body.started request=<Request [b'POST']>
+
+    DEBUG:httpcore.http11:send_request_body.complete
+    send_request_body.complete
+
+    DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+    receive_response_headers.started request=<Request [b'POST']>
+
+    DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Wed, 07 Feb 2024 14:34:36 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'openai-model', b'text-embedding-ada-002'), (b'openai-organization', b'user-yb70hqy63dwvqaqs8f3c3krp'), (b'openai-processing-ms', b'145'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'3000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-remaining-requests', b'2999'), (b'x-ratelimit-remaining-tokens', b'977088'), (b'x-ratelimit-reset-requests', b'20ms'), (b'x-ratelimit-reset-tokens', b'1.374s'), (b'x-request-id', b'536f4d4f11abc6bf54f01db36028b7c2'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=CGd6fHZcIQ1aUGAs07NYrIvKjAd2hhvfZyAoKALX7d0-1707316476-1-AemgNQAI400ovXbhLjHZ1buooVH8PcCOmT2XHBdZQ3OeetWTapBWUufcdyEpBjSS9U7DYVIWkru5FNwWZ+U1nPk=; path=/; expires=Wed, 07-Feb-24 15:04:36 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Set-Cookie', b'_cfuvid=EqPUYveDqRzzYPukEKXnUWu_BOIniUm222GAbrfOXIQ-1707316476093-0-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'851c5ac30cd9f490-BOM'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+    receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Wed, 07 Feb 2024 14:34:36 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'openai-model', b'text-embedding-ada-002'), (b'openai-organization', b'user-yb70hqy63dwvqaqs8f3c3krp'), (b'openai-processing-ms', b'145'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'3000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-remaining-requests', b'2999'), (b'x-ratelimit-remaining-tokens', b'977088'), (b'x-ratelimit-reset-requests', b'20ms'), (b'x-ratelimit-reset-tokens', b'1.374s'), (b'x-request-id', b'536f4d4f11abc6bf54f01db36028b7c2'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=CGd6fHZcIQ1aUGAs07NYrIvKjAd2hhvfZyAoKALX7d0-1707316476-1-AemgNQAI400ovXbhLjHZ1buooVH8PcCOmT2XHBdZQ3OeetWTapBWUufcdyEpBjSS9U7DYVIWkru5FNwWZ+U1nPk=; path=/; expires=Wed, 07-Feb-24 15:04:36 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Set-Cookie', b'_cfuvid=EqPUYveDqRzzYPukEKXnUWu_BOIniUm222GAbrfOXIQ-1707316476093-0-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'851c5ac30cd9f490-BOM'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+    INFO:httpx:HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+    HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+
+    DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+    receive_response_body.started request=<Request [b'POST']>
+
+    DEBUG:httpcore.http11:receive_response_body.complete
+    receive_response_body.complete
+
+    DEBUG:httpcore.http11:response_closed.started
+    response_closed.started
+
+    DEBUG:httpcore.http11:response_closed.complete
+    response_closed.complete
+
+    DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/embeddings "200 OK"
+    HTTP Request: POST https://api.openai.com/v1/embeddings "200 OK"
+
+/// Storing the embeddings in local     
+
+    DEBUG:fsspec.local:open file: /workspaces/llamacopilot/storage/docstore.json
+    open file: /workspaces/llamacopilot/storage/docstore.json
+
+    DEBUG:fsspec.local:open file: /workspaces/llamacopilot/storage/index_store.json
+    open file: /workspaces/llamacopilot/storage/index_store.json
+
+    DEBUG:fsspec.local:open file: /workspaces/llamacopilot/storage/graph_store.json
+    open file: /workspaces/llamacopilot/storage/graph_store.json
+
+    DEBUG:fsspec.local:open file: /workspaces/llamacopilot/storage/default__vector_store.json
+    open file: /workspaces/llamacopilot/storage/default__vector_store.json
+
+    DEBUG:fsspec.local:open file: /workspaces/llamacopilot/storage/image__vector_store.json
+    open file: /workspaces/llamacopilot/storage/image__vector_store.json
+
+
+/// 
+
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/embeddings', 'files': None, 'post_parser': <function Embeddings.create.<locals>.parser at 0x7f7e63746050>, 'json_data': {'input': ['What did the author do growing up?'], 'model': <OpenAIEmbeddingModeModel.TEXT_EMBED_ADA_002: 'text-embedding-ada-002'>, 'encoding_format': 'base64'}}
+Request options: {'method': 'post', 'url': '/embeddings', 'files': None, 'post_parser': <function Embeddings.create.<locals>.parser at 0x7f7e63746050>, 'json_data': {'input': ['What did the author do growing up?'], 'model': <OpenAIEmbeddingModeModel.TEXT_EMBED_ADA_002: 'text-embedding-ada-002'>, 'encoding_format': 'base64'}}
+
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+send_request_headers.started request=<Request [b'POST']>
+
+DEBUG:httpcore.http11:send_request_headers.complete
+send_request_headers.complete
+
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+send_request_body.started request=<Request [b'POST']>
+
+DEBUG:httpcore.http11:send_request_body.complete
+send_request_body.complete
+
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+receive_response_headers.started request=<Request [b'POST']>
+
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Wed, 07 Feb 2024 14:34:37 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'openai-model', b'text-embedding-ada-002'), (b'openai-organization', b'user-yb70hqy63dwvqaqs8f3c3krp'), (b'openai-processing-ms', b'17'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'3000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-remaining-requests', b'2999'), (b'x-ratelimit-remaining-tokens', b'999992'), (b'x-ratelimit-reset-requests', b'20ms'), (b'x-ratelimit-reset-tokens', b'0s'), (b'x-request-id', b'3a8c39781ca9010397c87eea8dee6a2b'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'851c5aceeb15f490-BOM'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Wed, 07 Feb 2024 14:34:37 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'openai-model', b'text-embedding-ada-002'), (b'openai-organization', b'user-yb70hqy63dwvqaqs8f3c3krp'), (b'openai-processing-ms', b'17'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'3000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-remaining-requests', b'2999'), (b'x-ratelimit-remaining-tokens', b'999992'), (b'x-ratelimit-reset-requests', b'20ms'), (b'x-ratelimit-reset-tokens', b'0s'), (b'x-request-id', b'3a8c39781ca9010397c87eea8dee6a2b'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'851c5aceeb15f490-BOM'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+receive_response_body.started request=<Request [b'POST']>
+
+DEBUG:httpcore.http11:receive_response_body.complete
+receive_response_body.complete
+
+DEBUG:httpcore.http11:response_closed.started
+response_closed.started
+
+DEBUG:httpcore.http11:response_closed.complete
+response_closed.complete
+
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/embeddings "200 OK"
+HTTP Request: POST https://api.openai.com/v1/embeddings "200 OK"
+
+DEBUG:llama_index.indices.utils:> Top 2 nodes:
+
+> [Node b1bf2a21-e663-43bc-a107-6b599e29478a] [Similarity score:             0.81564] What I Worked On
+
+February 2021
+
+Before college the two main things I worked on, outside of schoo...
+
+> [Node 9357116f-6de1-4c7d-81ac-fd9175906b78] [Similarity score:             0.808228] I remember when my friend Robert Morris got kicked out of Cornell for writing the internet worm o...
+> Top 2 nodes:
+
+> [Node b1bf2a21-e663-43bc-a107-6b599e29478a] [Similarity score:             0.81564] What I Worked On
+
+February 2021
+
+Before college the two main things I worked on, outside of schoo...
+
+> [Node 9357116f-6de1-4c7d-81ac-fd9175906b78] [Similarity score:             0.808228] I remember when my friend Robert Morris got kicked out of Cornell for writing the internet worm o...
+
+DEBUG:httpx:load_ssl_context verify=True cert=None trust_env=True http2=False
+load_ssl_context verify=True cert=None trust_env=True http2=False
+
+DEBUG:httpx:load_verify_locations cafile='/home/vscode/.local/share/virtualenvs/llamacopilot-b6ATpH5h/lib/python3.10/site-packages/certifi/cacert.pem'
+load_verify_locations cafile='/home/vscode/.local/share/virtualenvs/llamacopilot-b6ATpH5h/lib/python3.10/site-packages/certifi/cacert.pem'
+
+DEBUG:openai._base_client:Request options: {
+    'method': 'post', 
+    'url': '/chat/completions', 
+    'files': None, 'json_data': 
+    {
+        'messages': [
+            {
+                'role': 
+                'system', 'content': "You are an expert Q&A system that is trusted around the world.\nAlways answer the query using the provided context information, and not prior knowledge.\nSome rules to follow:\n1. Never directly reference the given context in your answer.\n2. Avoid statements like 'Based on the context, ...' or 'The context information ...' or anything along those lines."
+            }, 
+            {
+                'role': 'user', 
+                'content': 'Context information is below.\n---------------------\nfile_path: data/essay.txt
+                
+                \n\nWhat I Worked On\n\nFebruary 2021\n\nBefore college the two main things I worked on, outside of school, were writing and programming. I didn\'t write essays. I wrote what beginning writers were supposed to write then, and probably still are: short stories. My stories were awful. They had hardly any plot, just characters with strong feelings, which I imagined made them deep.\n\nThe first programs I tried writing were on the IBM 1401 that our school district used for what was then called "data processing." This was in 9th grade, so I was 13 or 14. The school district\'s 1401 happened to be in the basement of our junior high school, and my friend Rich Draves and I got permission to use it. It was like a mini Bond villain\'s lair down there, with all these alien-looking machines — CPU, disk drives, printer, card reader — sitting up on a raised floor under bright fluorescent lights.\n\nThe language we used was an early version of Fortran. You had to type programs on punch cards, then stack them in the card reader and press a button to load the program into memory and run it. The result would ordinarily be to print something on the spectacularly loud printer.\n\nI was puzzled by the 1401. I couldn\'t figure out what to do with it. And in retrospect there\'s not much I could have done with it. The only form of input to programs was data stored on punched cards, and I didn\'t have any data stored on punched cards. The only other option was to do things that didn\'t rely on any input, like calculate approximations of pi, but I didn\'t know enough math to do anything interesting of that type. So I\'m not surprised I can\'t remember any programs I wrote, because they can\'t have done much. My clearest memory is of the moment I learned it was possible for programs not to terminate, when one of mine didn\'t. On a machine without time-sharing, this was a social as well as a technical error, as the data center manager\'s expression made clear.\n\nWith microcomputers, everything changed. Now you could have a computer sitting right in front of you, on a desk, that could respond to your keystrokes as it was running instead of just churning through a stack of punch cards and then stopping. 
+                
+                [1]\n\nThe first of my friends to get a microcomputer built it himself. It was sold as a kit by Heathkit. I remember vividly how impressed and envious I felt watching him sitting in front of it, typing programs right into the computer.\n\nComputers were expensive in those days and it took me years of nagging before I convinced my father to buy one, a TRS-80, in about 1980. The gold standard then was the Apple II, but a TRS-80 was good enough. This was when I really started programming. I wrote simple games, a program to predict how high my model rockets would fly, and a word processor that my father used to write at least one book. There was only room in memory for about 2 pages of text, so he\'d write 2 pages at a time and then print them out, but it was a lot better than a typewriter.\n\nThough I liked programming, I didn\'t plan to study it in college. In college I was going to study philosophy, which sounded much more powerful. It seemed, to my naive high school self, to be the study of the ultimate truths, compared to which the things studied in other fields would be mere domain knowledge. What I discovered when I got to college was that the other fields took up so much of the space of ideas that there wasn\'t much left for these supposed ultimate truths. All that seemed left for philosophy were edge cases that people in other fields felt could safely be ignored.\n\nI couldn\'t have put this into words when I was 18. All I knew at the time was that I kept taking philosophy courses and they kept being boring. So I decided to switch to AI.\n\nAI was in the air in the mid 1980s, but there were two things especially that made me want to work on it: a novel by Heinlein called The Moon is a Harsh Mistress, which featured an intelligent computer called Mike, and a PBS documentary that showed Terry Winograd using SHRDLU. I haven\'t tried rereading The Moon is a Harsh Mistress, so I don\'t know how well it has aged, but when I read it I was drawn entirely into its world. It seemed only a matter of time before we\'d have Mike, and when I saw Winograd using SHRDLU, it seemed like that time would be a few years at most. All you had to do was teach SHRDLU more words.\n\nfile_path: data/essay.txt\n\nI remember when my friend Robert Morris got kicked out of Cornell for writing the internet worm of 1988, I was envious that he\'d found such a spectacular way to get out of grad school.\n\nThen one day in April 1990 a crack appeared in the wall. I ran into professor Cheatham and he asked if I was far enough along to graduate that June. I didn\'t have a word of my dissertation written, but in what must have been the quickest bit of thinking in my life, I decided to take a shot at writing one in the 5 weeks or so that remained before the deadline, reusing parts of On Lisp where I could, and I was able to respond, with no perceptible delay "Yes, I think so. I\'ll give you something to read in a few days."\n\nI picked applications of continuations as the topic. In retrospect I should have written about macros and embedded languages. There\'s a whole world there that\'s barely been explored. But all I wanted was to get out of grad school, and my rapidly written dissertation sufficed, just barely.\n\nMeanwhile I was applying to art schools. I applied to two: RISD in the US, and the Accademia di Belli Arti in Florence, which, because it was the oldest art school, I imagined would be good. RISD accepted me, and I never heard back from the Accademia, so off to Providence I went.\n\nI\'d applied for the BFA program at RISD, which meant in effect that I had to go to college again. This was not as strange as it sounds, because I was only 25, and art schools are full of people of different ages. RISD counted me as a transfer sophomore and said I had to do the foundation that summer. The foundation means the classes that everyone has to take in fundamental subjects like drawing, color, and design.\n\nToward the end of the summer I got a big surprise: a letter from the Accademia, which had been delayed because they\'d sent it to Cambridge England instead of Cambridge Massachusetts, inviting me to take the entrance exam in Florence that fall. This was now only weeks away. My nice landlady let me leave my stuff in her attic. I had some money saved from consulting work I\'d done in grad school; there was probably enough to last a year if I lived cheaply. Now all I had to do was learn Italian.\n\nOnly stranieri (foreigners) had to take this entrance exam. In retrospect it may well have been a way of excluding them, because there were so many stranieri attracted by the idea of studying art in Florence that the Italian students would otherwise have been outnumbered. I was in decent shape at painting and drawing from the RISD foundation that summer, but I still don\'t know how I managed to pass the written exam. I remember that I answered the essay question by writing about Cezanne, and that I cranked up the intellectual level as high as I could to make the most of my limited vocabulary. 
+                
+                [2]\n\nI\'m only up to age 25 and already there are such conspicuous patterns. Here I was, yet again about to attend some august institution in the hopes of learning about some prestigious subject, and yet again about to be disappointed. The students and faculty in the painting department at the Accademia were the nicest people you could imagine, but they had long since arrived at an arrangement whereby the students wouldn\'t require the faculty to teach anything, and in return the faculty wouldn\'t require the students to learn anything. And at the same time all involved would adhere outwardly to the conventions of a 19th century atelier. We actually had one of those little stoves, fed with kindling, that you see in 19th century studio paintings, and a nude model sitting as close to it as possible without getting burned. Except hardly anyone else painted her besides me. The rest of the students spent their time chatting or occasionally trying to imitate things they\'d seen in American art magazines.\n\nOur model turned out to live just down the street from me. She made a living from a combination of modelling and making fakes for a local antique dealer. She\'d copy an obscure old painting out of a book, and then he\'d take the copy and maltreat it to make it look old. 
+                
+                [3]\n\nWhile I was a student at the Accademia I started painting still lives in my bedroom at night. These paintings were tiny, because the room was, and because I painted them on leftover scraps of canvas, which was all I could afford at the time. Painting still lives is different from painting people, because the subject, as its name suggests, can\'t move.
+                
+                \n---------------------\nGiven the context information and not prior knowledge, answer the query.\n
+                Query: What did the author do growing up?\n
+                Answer: '
+            }
+        ], 
+        'model': 'gpt-3.5-turbo', 
+        'stream': False, 
+        'temperature': 0.1
+    }}
+
+Request options: {
+    'method': 'post', 
+    'url': '/chat/completions', 
+    'files': None, 
+    'json_data': {
+        'messages': [
+            {
+                'role': 'system', 
+                'content': "You are an expert Q&A system that is trusted around the world.\nAlways answer the query using the provided context information, and not prior knowledge.\nSome rules to follow:\n1. Never directly reference the given context in your answer.\n2. Avoid statements like 'Based on the context, ...' or 'The context information ...' or anything along those lines."
+            }, 
+            {
+                'role': 'user', 
+                'content': 'Context information is below.\n---------------------\nfile_path: data/essay.txt
+                
+                \n\nWhat I Worked On\n\nFebruary 2021\n\nBefore college the two main things I worked on, outside of school, were writing and programming. I didn\'t write essays. I wrote what beginning writers were supposed to write then, and probably still are: short stories. My stories were awful. They had hardly any plot, just characters with strong feelings, which I imagined made them deep.\n\nThe first programs I tried writing were on the IBM 1401 that our school district used for what was then called "data processing." This was in 9th grade, so I was 13 or 14. The school district\'s 1401 happened to be in the basement of our junior high school, and my friend Rich Draves and I got permission to use it. It was like a mini Bond villain\'s lair down there, with all these alien-looking machines — CPU, disk drives, printer, card reader — sitting up on a raised floor under bright fluorescent lights.\n\nThe language we used was an early version of Fortran. You had to type programs on punch cards, then stack them in the card reader and press a button to load the program into memory and run it. The result would ordinarily be to print something on the spectacularly loud printer.\n\nI was puzzled by the 1401. I couldn\'t figure out what to do with it. And in retrospect there\'s not much I could have done with it. The only form of input to programs was data stored on punched cards, and I didn\'t have any data stored on punched cards. The only other option was to do things that didn\'t rely on any input, like calculate approximations of pi, but I didn\'t know enough math to do anything interesting of that type. So I\'m not surprised I can\'t remember any programs I wrote, because they can\'t have done much. My clearest memory is of the moment I learned it was possible for programs not to terminate, when one of mine didn\'t. On a machine without time-sharing, this was a social as well as a technical error, as the data center manager\'s expression made clear.\n\nWith microcomputers, everything changed. Now you could have a computer sitting right in front of you, on a desk, that could respond to your keystrokes as it was running instead of just churning through a stack of punch cards and then stopping. 
+                
+                [1]\n\nThe first of my friends to get a microcomputer built it himself. It was sold as a kit by Heathkit. I remember vividly how impressed and envious I felt watching him sitting in front of it, typing programs right into the computer.\n\nComputers were expensive in those days and it took me years of nagging before I convinced my father to buy one, a TRS-80, in about 1980. The gold standard then was the Apple II, but a TRS-80 was good enough. This was when I really started programming. I wrote simple games, a program to predict how high my model rockets would fly, and a word processor that my father used to write at least one book. There was only room in memory for about 2 pages of text, so he\'d write 2 pages at a time and then print them out, but it was a lot better than a typewriter.\n\nThough I liked programming, I didn\'t plan to study it in college. In college I was going to study philosophy, which sounded much more powerful. It seemed, to my naive high school self, to be the study of the ultimate truths, compared to which the things studied in other fields would be mere domain knowledge. What I discovered when I got to college was that the other fields took up so much of the space of ideas that there wasn\'t much left for these supposed ultimate truths. All that seemed left for philosophy were edge cases that people in other fields felt could safely be ignored.\n\nI couldn\'t have put this into words when I was 18. All I knew at the time was that I kept taking philosophy courses and they kept being boring. So I decided to switch to AI.\n\nAI was in the air in the mid 1980s, but there were two things especially that made me want to work on it: a novel by Heinlein called The Moon is a Harsh Mistress, which featured an intelligent computer called Mike, and a PBS documentary that showed Terry Winograd using SHRDLU. I haven\'t tried rereading The Moon is a Harsh Mistress, so I don\'t know how well it has aged, but when I read it I was drawn entirely into its world. It seemed only a matter of time before we\'d have Mike, and when I saw Winograd using SHRDLU, it seemed like that time would be a few years at most. All you had to do was teach SHRDLU more words.\n\nfile_path: data/essay.txt\n\nI remember when my friend Robert Morris got kicked out of Cornell for writing the internet worm of 1988, I was envious that he\'d found such a spectacular way to get out of grad school.\n\nThen one day in April 1990 a crack appeared in the wall. I ran into professor Cheatham and he asked if I was far enough along to graduate that June. I didn\'t have a word of my dissertation written, but in what must have been the quickest bit of thinking in my life, I decided to take a shot at writing one in the 5 weeks or so that remained before the deadline, reusing parts of On Lisp where I could, and I was able to respond, with no perceptible delay "Yes, I think so. I\'ll give you something to read in a few days."\n\nI picked applications of continuations as the topic. In retrospect I should have written about macros and embedded languages. There\'s a whole world there that\'s barely been explored. But all I wanted was to get out of grad school, and my rapidly written dissertation sufficed, just barely.\n\nMeanwhile I was applying to art schools. I applied to two: RISD in the US, and the Accademia di Belli Arti in Florence, which, because it was the oldest art school, I imagined would be good. RISD accepted me, and I never heard back from the Accademia, so off to Providence I went.\n\nI\'d applied for the BFA program at RISD, which meant in effect that I had to go to college again. This was not as strange as it sounds, because I was only 25, and art schools are full of people of different ages. RISD counted me as a transfer sophomore and said I had to do the foundation that summer. The foundation means the classes that everyone has to take in fundamental subjects like drawing, color, and design.\n\nToward the end of the summer I got a big surprise: a letter from the Accademia, which had been delayed because they\'d sent it to Cambridge England instead of Cambridge Massachusetts, inviting me to take the entrance exam in Florence that fall. This was now only weeks away. My nice landlady let me leave my stuff in her attic. I had some money saved from consulting work I\'d done in grad school; there was probably enough to last a year if I lived cheaply. Now all I had to do was learn Italian.\n\nOnly stranieri (foreigners) had to take this entrance exam. In retrospect it may well have been a way of excluding them, because there were so many stranieri attracted by the idea of studying art in Florence that the Italian students would otherwise have been outnumbered. I was in decent shape at painting and drawing from the RISD foundation that summer, but I still don\'t know how I managed to pass the written exam. I remember that I answered the essay question by writing about Cezanne, and that I cranked up the intellectual level as high as I could to make the most of my limited vocabulary.
+                    
+                [2]\n\nI\'m only up to age 25 and already there are such conspicuous patterns. Here I was, yet again about to attend some august institution in the hopes of learning about some prestigious subject, and yet again about to be disappointed. The students and faculty in the painting department at the Accademia were the nicest people you could imagine, but they had long since arrived at an arrangement whereby the students wouldn\'t require the faculty to teach anything, and in return the faculty wouldn\'t require the students to learn anything. And at the same time all involved would adhere outwardly to the conventions of a 19th century atelier. We actually had one of those little stoves, fed with kindling, that you see in 19th century studio paintings, and a nude model sitting as close to it as possible without getting burned. Except hardly anyone else painted her besides me. The rest of the students spent their time chatting or occasionally trying to imitate things they\'d seen in American art magazines.\n\nOur model turned out to live just down the street from me. She made a living from a combination of modelling and making fakes for a local antique dealer. She\'d copy an obscure old painting out of a book, and then he\'d take the copy and maltreat it to make it look old. 
+                
+                [3]\n\nWhile I was a student at the Accademia I started painting still lives in my bedroom at night. These paintings were tiny, because the room was, and because I painted them on leftover scraps of canvas, which was all I could afford at the time. Painting still lives is different from painting people, because the subject, as its name suggests, can\'t move.
+                
+                \n---------------------\nGiven the context information and not prior knowledge, answer the query.\n
+                Query: What did the author do growing up?\n
+                Answer: '
+            }
+        ], 
+        'model': 'gpt-3.5-turbo', 
+        'stream': False, 
+        'temperature': 0.1
+    }
+}
+
+DEBUG:httpcore.connection:connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=60.0 socket_options=None
+connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=60.0 socket_options=None
+
+DEBUG:httpcore.connection:connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f7e61bdb970>
+connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f7e61bdb970>
+
+DEBUG:httpcore.connection:start_tls.started ssl_context=<ssl.SSLContext object at 0x7f7e61d9d140> server_hostname='api.openai.com' timeout=60.0
+start_tls.started ssl_context=<ssl.SSLContext object at 0x7f7e61d9d140> server_hostname='api.openai.com' timeout=60.0
+
+DEBUG:httpcore.connection:start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f7e61bdb940>
+start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f7e61bdb940>
+
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+send_request_headers.started request=<Request [b'POST']>
+
+DEBUG:httpcore.http11:send_request_headers.complete
+send_request_headers.complete
+
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+send_request_body.started request=<Request [b'POST']>
+
+DEBUG:httpcore.http11:send_request_body.complete
+send_request_body.complete
+
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+receive_response_headers.started request=<Request [b'POST']>
+
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Wed, 07 Feb 2024 14:34:40 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-0613'), (b'openai-organization', b'user-yb70hqy63dwvqaqs8f3c3krp'), (b'openai-processing-ms', b'2864'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'60000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'57630'), (b'x-ratelimit-reset-requests', b'8.64s'), (b'x-ratelimit-reset-tokens', b'2.37s'), (b'x-request-id', b'e83da31e24df38bc4ea81e48057a892e'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=XGlM.2whIAg5xfl1VRJwaWgca0hpH1AWQZcAarMExLg-1707316480-1-Ab2LZnUCxhlrK70pQvzrfyY20DGYmyUsg9/ows6/tZlXNFrbPtL+IQrHkqYmQmzut38NV8tbXhXW6FgoidrR0qs=; path=/; expires=Wed, 07-Feb-24 15:04:40 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Set-Cookie', b'_cfuvid=w1E7OX0FtD57_uJlu.jv68mq.MoB3ujxUD0QJ.xtt4o-1707316480836-0-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'851c5ad16ae1f4d6-BOM'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Wed, 07 Feb 2024 14:34:40 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-0613'), (b'openai-organization', b'user-yb70hqy63dwvqaqs8f3c3krp'), (b'openai-processing-ms', b'2864'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'60000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'57630'), (b'x-ratelimit-reset-requests', b'8.64s'), (b'x-ratelimit-reset-tokens', b'2.37s'), (b'x-request-id', b'e83da31e24df38bc4ea81e48057a892e'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=XGlM.2whIAg5xfl1VRJwaWgca0hpH1AWQZcAarMExLg-1707316480-1-Ab2LZnUCxhlrK70pQvzrfyY20DGYmyUsg9/ows6/tZlXNFrbPtL+IQrHkqYmQmzut38NV8tbXhXW6FgoidrR0qs=; path=/; expires=Wed, 07-Feb-24 15:04:40 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Set-Cookie', b'_cfuvid=w1E7OX0FtD57_uJlu.jv68mq.MoB3ujxUD0QJ.xtt4o-1707316480836-0-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'851c5ad16ae1f4d6-BOM'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+receive_response_body.started request=<Request [b'POST']>
+
+DEBUG:httpcore.http11:receive_response_body.complete
+receive_response_body.complete
+
+DEBUG:httpcore.http11:response_closed.started
+response_closed.started
+
+DEBUG:httpcore.http11:response_closed.complete
+response_closed.complete
+
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+The author mentioned that before college, they worked on writing and programming. They wrote short stories and tried writing programs on the IBM 1401 computer. They also mentioned getting a microcomputer, where they started programming and wrote simple games and a word processor.
+Key:  <openai_key>
+
+DEBUG:httpcore.connection:close.started
+close.started
+
+DEBUG:httpcore.connection:close.complete
+close.complete
+
+DEBUG:httpcore.connection:close.started
+close.started
+
+DEBUG:httpcore.connection:close.complete
+close.complete

@@ -1,0 +1,36 @@
+{
+    "index_store/data": {
+        "74a2b01d-ca1c-4074-81d4-7c8101b96de2": {
+            "__type__": "vector_store",
+            "__data__": {
+                "index_id": "74a2b01d-ca1c-4074-81d4-7c8101b96de2",
+                "summary": null,
+                "nodes_dict": {
+                    "b1bf2a21-e663-43bc-a107-6b599e29478a": "b1bf2a21-e663-43bc-a107-6b599e29478a",
+                    "1942b3ac-39e3-41b3-ba32-82a66b71e52d": "1942b3ac-39e3-41b3-ba32-82a66b71e52d",
+                    "ce86b807-d5d5-4a70-b19a-518abae7bfa3": "ce86b807-d5d5-4a70-b19a-518abae7bfa3",
+                    "9357116f-6de1-4c7d-81ac-fd9175906b78": "9357116f-6de1-4c7d-81ac-fd9175906b78",
+                    "effc0566-9df3-4218-a641-bcb3314e9cbb": "effc0566-9df3-4218-a641-bcb3314e9cbb",
+                    "ebbe1a30-c7a0-47fc-8d56-ff15689fbf33": "ebbe1a30-c7a0-47fc-8d56-ff15689fbf33",
+                    "33106f56-b73c-4cf8-8654-70575912dbd5": "33106f56-b73c-4cf8-8654-70575912dbd5",
+                    "a91126bd-649e-4605-ba9a-8b2d2aec97ab": "a91126bd-649e-4605-ba9a-8b2d2aec97ab",
+                    "e6789e73-ac0a-473c-9eef-25c0c361e324": "e6789e73-ac0a-473c-9eef-25c0c361e324",
+                    "5804e3ff-c3e0-43be-92d4-5dc6e4c2d91a": "5804e3ff-c3e0-43be-92d4-5dc6e4c2d91a",
+                    "175dd26d-22a8-4faa-8984-9d1e8a5e9c6f": "175dd26d-22a8-4faa-8984-9d1e8a5e9c6f",
+                    "1fd9d3c0-3c12-4fc6-a88c-cf53fc8a9458": "1fd9d3c0-3c12-4fc6-a88c-cf53fc8a9458",
+                    "90347dba-cc08-42dd-b606-5b268d35fea7": "90347dba-cc08-42dd-b606-5b268d35fea7",
+                    "16efdfa7-cc8f-4dfb-878f-9933ad285b2a": "16efdfa7-cc8f-4dfb-878f-9933ad285b2a",
+                    "4aa5d649-a0b3-4f7f-bd8c-16a9b32008dd": "4aa5d649-a0b3-4f7f-bd8c-16a9b32008dd",
+                    "eb991437-c7d2-4d67-afdd-2f9254aae0aa": "eb991437-c7d2-4d67-afdd-2f9254aae0aa",
+                    "288e6bb2-9d80-4b56-bab1-c4c74c31eac4": "288e6bb2-9d80-4b56-bab1-c4c74c31eac4",
+                    "04c8f5a3-e655-4854-9c51-c29bebde5f27": "04c8f5a3-e655-4854-9c51-c29bebde5f27",
+                    "ce98e223-3fec-45ce-b6e6-1df0916acb92": "ce98e223-3fec-45ce-b6e6-1df0916acb92",
+                    "b472be19-ea98-4629-84a6-08ca753fb25a": "b472be19-ea98-4629-84a6-08ca753fb25a",
+                    "34110773-9efb-4692-be79-afcf7e5190ec": "34110773-9efb-4692-be79-afcf7e5190ec"
+                },
+                "doc_id_dict": {},
+                "embeddings_dict": {}
+            }
+        }
+    }
+}

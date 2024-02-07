@@ -8,5 +8,5 @@
             ]
         }
     },
-    "postCreateCommand": "pip install pipenv && pipenv shell && pipenv install"
+    "postCreateCommand": "pip install pipenv ; pipenv shell ; pipenv install"
 }
