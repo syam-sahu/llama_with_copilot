@@ -7,5 +7,6 @@
                 "GitHub.Copilot"
             ]
         }
-    }
+    },
+    "postCreateCommand": "pip install poetry"
 }
